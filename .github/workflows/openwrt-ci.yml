@@ -96,12 +96,15 @@ jobs:
           # 无论你想要对固件进行怎样的定制, 都需要且只需要修改 EOF 回环内的内容.
           # 
 
-          # 编译x64固件:
-          # cat >> .config <<EOF
-          # CONFIG_TARGET_x86=y
-          # CONFIG_TARGET_x86_64=y
+          # 编译RP4固件:
+          cat >> .config <<EOF
+          # CONFIG_TARGET_Broadcom BCM27xx=y
+          # CONFIG_TARGET_BCM2711 boards (64 bit)x86_64=y
           # CONFIG_TARGET_x86_64_Generic=y
-          # EOF
+          CONFIG_TARGET_brcm2708=y
+          CONFIG_TARGET_brcm2708_bcm2711=y
+          CONFIG_TARGET_brcm2708_bcm2711_DEVICE_rpi-4=y
+          EOF
 
           # 固件压缩:
           # cat >> .config <<EOF
